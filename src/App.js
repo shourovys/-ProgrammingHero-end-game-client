@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { BackGround, FooterBackGround } from "./App.styles";
+import Agency from "./components/Agency";
+import Footer from "./components/Footer";
+import HeroSection from "./components/HeroSection";
+import Navbar from "./components/Navbar";
+import Portfolio from "./components/Portfolio";
+import Specialization from "./components/Specialization";
+import { Container } from "./style/common";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BackGround>
+        <Navbar />
+        <Container>
+          <HeroSection />
+          <Specialization />
+          <Agency />
+        </Container>
+        <Container backgroundColor="#F8F5FF">
+          <Portfolio />
+        </Container>
+      </BackGround>
+      <FooterBackGround>
+        <Container>
+          <Footer />
+        </Container>
+      </FooterBackGround>
+    </>
   );
 }
 
