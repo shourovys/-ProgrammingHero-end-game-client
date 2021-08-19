@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Order = () => {
+const CreateService = () => {
     return (
         <div>
-            Order
+            
         </div>
     );
 };
 
-export default Order;
+export default CreateService;

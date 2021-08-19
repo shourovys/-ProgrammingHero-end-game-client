@@ -1,16 +1,21 @@
+import 'antd/dist/antd.css';
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import GlobalStyle from "./App.styles";
 import "./index.css";
+import { store } from './redux/store';
 import reportWebVitals from "./reportWebVitals";
 ReactDOM.render(
   <>
+  <Provider store={store}>
     <Router>
       <GlobalStyle />
       <App />
     </Router>
+    </Provider>
   </>,
   document.getElementById("root")
 );
