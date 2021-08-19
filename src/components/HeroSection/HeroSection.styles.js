@@ -4,7 +4,6 @@ import { device } from "../../style/variables/deviceBreakpoints";
 
 export const HeroContainer = styled.section`
   min-height: 100vh;
-  padding-top: 40px;
   @media ${device.tablet} {
     display: flex;
     justify-content: space-between;
@@ -25,7 +24,7 @@ export const HeroInfo = styled.div`
     margin-bottom: 70px;
   }
   @media ${device.tabletL} {
-    padding-top: 80px;
+    padding-top: 60px;
   }
 `;
 

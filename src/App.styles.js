@@ -10,7 +10,12 @@ const GlobalStyle = createGlobalStyle`
 }
 body{
   overflow-x: hidden;
+  scroll-behavior: smooth;
   font-family: 'Poppins', sans-serif;
+}
+a{
+  color:black;
+  text-decoration: none;
 }
 `
 

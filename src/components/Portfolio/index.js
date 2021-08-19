@@ -7,6 +7,7 @@ import PortfolioImg from "./PortfolioImg";
 const Portfolio = () => {
   const [currentOption, setCurrentOption] = useState({ name: "All" });
   return (
+    <div id="portfolio">
     <PaddingContainer>
       <Title>Our Portfolio</Title>
       <CssBar />
@@ -16,6 +17,7 @@ const Portfolio = () => {
       />
       <PortfolioImg currentOption={currentOption} />
     </PaddingContainer>
+    </div>
   );
 };
 

@@ -11,6 +11,7 @@ import {
 
 const Agency = () => {
   return (
+    <div id="why-us">
     <PaddingContainer>
       <AgencyContainer>
         <AgencyImgWrapper>
@@ -47,6 +48,7 @@ const Agency = () => {
         </div>
       </AgencyContainer>
     </PaddingContainer>
+    </div>
   );
 };
 

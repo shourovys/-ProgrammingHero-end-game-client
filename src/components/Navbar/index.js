@@ -1,5 +1,4 @@
 import React from "react";
-import { useScroll } from "../../hooks/useScroll";
 import logo from "../../images/logo-blue.png";
 import { Container, Logo, MainButton } from "../../style/common";
 import {
@@ -16,30 +15,41 @@ import {
   NavItemContainer
 } from "./Navbar.styles";
 const Navbar = () => {
-  const { scrollY } = useScroll();
   return (
     <>
-      <Header scrollY={scrollY}>
+      <Header >
         <Container>
           <MenuContainer>
-            <Logo color={scrollY > 45 ? "blue" : ""} src={logo} />
+            <Logo src={logo} color='blue'/>
 
             <NavContainer>
               <ShowAfterTabletL>
                 <NavItemContainer>
-                  <NavItem>Home</NavItem>
-                  <NavItem>Page</NavItem>
-                  <NavItem>Services</NavItem>
-                  <NavItem>Blogs</NavItem>
-                  <NavItem>Contact Us</NavItem>
+                  <NavItem href="#" >
+                    Home
+                  </NavItem>
+                  <NavItem href="#services" >
+                    Services
+                  </NavItem>
+                  <NavItem href="#portfolio" >
+                    Portfolio
+                  </NavItem>
+                  <NavItem href="#specializations" >
+                    Specializations
+                  </NavItem>
+                  <NavItem href="#specializations" >
+                    Admin
+                  </NavItem>
                 </NavItemContainer>
               </ShowAfterTabletL>
 
               <ShowAfterMobile>
-                <MainButton>
-                  {" "}
-                  <i className="fas fa-chevron-right"></i> &nbsp; Gat A Service
+              <a href="#services">
+                <MainButton href="#services">
+                    <i className="fas fa-chevron-right"></i> &nbsp; Gat A
+                    Service
                 </MainButton>
+                </a>
               </ShowAfterMobile>
 
               <HideAfterTabletL>

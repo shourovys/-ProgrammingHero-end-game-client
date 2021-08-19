@@ -56,7 +56,7 @@ export const MainButton = styled.button`
   background-size: 200%;
   border-color: transparent !important;
   transition: all 0.5s;
-
+  cursor: pointer;
   :hover {
     border-radius: 24px 0px;
   }

@@ -8,7 +8,6 @@
   width: 22px;
   height: 18px;
   position: relative;
-  /* margin: 50px auto; */
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -25,7 +24,7 @@
   position: absolute;
   height: 2px;
   width: 100%;
-  background: white;
+  background: black;
   border-radius: 9px;
   opacity: 1;
   left: 0;

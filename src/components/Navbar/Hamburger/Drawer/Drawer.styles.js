@@ -9,7 +9,7 @@ export const HamburgerMenuContainer = styled.div`
 export const HamburgerItemContainer = styled.div`
   padding: 25px 0px;
 `;
-export const HamburgerItem = styled.div`
+export const HamburgerItem = styled.a`
   text-align: center;
   color: black;
   padding: 8px 0px;

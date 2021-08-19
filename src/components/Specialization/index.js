@@ -8,13 +8,13 @@ const Specialization = () => {
     // event.target.style.boxShadow= '0px 0px 6px 1px lightgray';
   }
   return (
-    <>
+    <div id="specializations">
       <PaddingContainer>
         <Title>Our Speciallization</Title>
         <CssBar />
         <SpecializationCards onMouseOver={MouseOver} />
       </PaddingContainer>
-    </>
+      </div>
   );
 };
 

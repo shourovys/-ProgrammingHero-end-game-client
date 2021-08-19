@@ -2,8 +2,10 @@ import styled from "styled-components";
 import colors from "../../style/variables/colors";
 
 export const Header = styled.header`
-  background: ${({ scrollY }) => (scrollY > 45 ? colors.white : "transparent")};
-  color: ${({ scrollY }) => (scrollY > 45 ? colors.dark : colors.white)};
+  /* background: ${({ scrollY }) => (scrollY > 20 ? colors.white : "transparent")}; */
+  /* color: ${({ scrollY }) => (scrollY > 20 ? colors.dark : colors.white)}; */
+  background-color: #fff;
+  color: black;
   height: 85px;
   display: flex;
   justify-content: center;
@@ -39,7 +41,7 @@ export const NavItemContainer = styled.nav`
   align-items: center;
 `;
 
-export const NavItem = styled.div`
+export const NavItem = styled.a`
   font-size: 15px;
   padding: 0px 15px;
   cursor: pointer;

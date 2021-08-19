@@ -35,26 +35,42 @@ const LeftDrawer = ({ toggleDrawer }) => {
         <Logo color="blue" src={logo} alt="logo" />
 
         <HamburgerItemContainer>
-          <HamburgerItem>Home</HamburgerItem>
-          <HamburgerItem>
-            Page
+          <HamburgerItem href="#">
+            Home
             <BoxIconWrapper>
               <i className="fa fa-chevron-right" />
             </BoxIconWrapper>
           </HamburgerItem>
-          <HamburgerItem>
+          <HamburgerItem href="#why-us">
+             Why Us
+            <BoxIconWrapper>
+              <i className="fa fa-chevron-right" />
+            </BoxIconWrapper>
+          </HamburgerItem>
+          <HamburgerItem href="#services">
             Services
             <BoxIconWrapper>
               <i className="fa fa-chevron-right" />
             </BoxIconWrapper>
           </HamburgerItem>
-          <HamburgerItem>
-            Blogs
+          <HamburgerItem href="#portfolio">
+            Portfolio
             <BoxIconWrapper>
               <i className="fa fa-chevron-right" />
             </BoxIconWrapper>
           </HamburgerItem>
-          <HamburgerItem>Contact Us</HamburgerItem>
+          <HamburgerItem href="#specializations">
+            Specializations
+            <BoxIconWrapper>
+              <i className="fa fa-chevron-right" />
+            </BoxIconWrapper>
+          </HamburgerItem>
+          <HamburgerItem href="#specializations">
+            Admin
+            <BoxIconWrapper>
+              <i className="fa fa-chevron-right" />
+            </BoxIconWrapper>
+          </HamburgerItem>
         </HamburgerItemContainer>
 
         <SocialIconContainer>

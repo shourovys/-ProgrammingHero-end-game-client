@@ -21,7 +21,9 @@ const HeroSection = () => {
             Morbi sed lacus nec risus finibus feugiat et fermentum nibh.
             Pellentesque vitae ante at elit fringilla ac at purus.
           </HeroP>
+          <a href="#services">
           <MainButton>Our Service</MainButton>
+          </a>
         </HeroInfo>
         <HeroImgWrapper>
           <HeroImg src={heroImg} alt="hero image" />
