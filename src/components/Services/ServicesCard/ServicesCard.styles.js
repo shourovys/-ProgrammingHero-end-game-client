@@ -31,6 +31,10 @@ export const ServicesCardBody = styled.div`
     font-size: 24px;
     font-weight: 700;
     line-height: 30px;
+    margin-bottom: 15px;
+  }
+
+  & p{
     margin-bottom: 20px;
   }
 

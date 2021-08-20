@@ -27,6 +27,7 @@ export const FooterGrid = styled.footer`
 
     & h4 {
       font-size: 24px;
+      color: white;
     }
   }
 `;

@@ -1,18 +1,18 @@
 import { createUserApi, loginUserApi } from "../../api";
-import { showModal, showNotification } from "../Notification/Action";
+import { showNotification } from "../Notification/Action";
 
 export const CREATE_ACCOUNT = "CREATE_ACCOUNT";
 export const Add_LOGIN_USER = "Add_LOGIN_USER";
 export const LOGOUT = "LOGOUT";
 
 export const createAccount =
-  (formData, setLoading, history) => async (dispatch) => {
+  (formData, setLoading) => async (dispatch) => {
     try {
       const { data } = await createUserApi(formData);
+      console.log("🚀 ~ file: actions.js ~ line 12 ~ data", data)
       dispatch({type:Add_LOGIN_USER,payload:data})
-      dispatch(showModal({ massageType: "success", content: data.message }));
+      dispatch(showNotification({ massageType: "success", message: 'Account created successfully' }));
       setLoading(false);
-      history.push('/');
     } catch (error) {
       dispatch(
         showNotification({
@@ -21,17 +21,18 @@ export const createAccount =
         })
       );
       setLoading(false);
+      console.log(error);
     }
   };
 
 export const loginAccount =
-  (formData, setLoading, history) => async (dispatch) => {
+  (formData, setLoading) => async (dispatch) => {
     try {
-      const { data } = await loginUserApi(formData);
+      const {data}= await loginUserApi(formData);
+      console.log("🚀 ~ file: actions.js ~ line 34 ~ data", data)
       dispatch({type:Add_LOGIN_USER,payload:data})
-      dispatch(showModal({ massageType: "success", content: data.message }));
+      dispatch(showNotification({ massageType: "success", message: `welcome ${data.userInfo.username}` }));
       setLoading(false);
-      history.push("/");
     } catch (error) {
       dispatch(
         showNotification({
@@ -40,6 +41,7 @@ export const loginAccount =
         })
       );
       setLoading(false);
+      console.log(error);
     }
   };
 
@@ -48,10 +50,12 @@ export const logOut = () => {
   return {
     type: LOGOUT,
     payload: {
-      id: "",
+      userInfo:{
+        id: "",
       username: "",
       email: "",
-      token: null,
+      isAdmin: false
+      }
     },
   };
 };

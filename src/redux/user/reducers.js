@@ -1,10 +1,13 @@
 import { Add_LOGIN_USER, LOGOUT } from "./actions";
 
 const initialState = {
-  id: "",
-  username: "",
-  email: "",
   token: null,
+  userInfo: {
+    id: "",
+    name: "",
+    email: "",
+    isAdmin: false,
+  },
 };
 
 export default function userReducer(state = initialState, action) {
@@ -17,10 +20,10 @@ export default function userReducer(state = initialState, action) {
       localStorage.setItem("profile", JSON.stringify(null));
       return {
         ...action.payload,
-        authData: null,
+        token: null,
       };
     default:
-      const profile = JSON.parse(localStorage.getItem("profile"));
+      const profile = JSON.parse(localStorage.getItem("profile")||'{}');
       return {
         ...state,
         ...profile,

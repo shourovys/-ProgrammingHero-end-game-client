@@ -39,10 +39,9 @@ export const NavItemContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;
 
-export const NavItem = styled.a`
-  font-size: 15px;
+  & a{
+    font-size: 15px;
   padding: 0px 15px;
   cursor: pointer;
   font-weight: 600;
@@ -52,4 +51,9 @@ export const NavItem = styled.a`
   text-transform: capitalize;
   line-height: 1;
   line-height: 30px;
+  }
+`;
+
+export const NavItem = styled.a`
+ 
 `;

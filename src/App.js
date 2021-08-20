@@ -1,23 +1,32 @@
+import 'antd/lib/style/index.less'; // antd core styles
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Switch } from "react-router-dom";
 import Login from "./components/Auth/Login/index";
 import SineUp from "./components/Auth/SienUp";
 import Navbar from "./components/Navbar";
-import Portfolio from "./components/Portfolio";
+import PrivateRoute from './components/PrivateRoute';
+import AdminRoute from './components/PrivateRoute/AdminRoute';
 import AdminOrder from "./page/AdminOrder";
+import Checkout from './page/Checkout';
 import CreateService from "./page/CreateService";
 import Home from "./page/Home";
 import Order from "./page/Order";
+import ServiceDetails from './page/ServiceDetails';
+import { getService } from './redux/service/actions';
+
 function App() {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getService())
+  }, [])
   return (
     <>
       <Navbar />
 
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
         <Route exact path="/service/:id">
-          <Portfolio />
+          <ServiceDetails />
         </Route>
         <Route path="/auth/login">
           <Login />
@@ -25,15 +34,18 @@ function App() {
         <Route path="/auth/sineUp">
           <SineUp />
         </Route>
-        <Route path="/order">
+        <PrivateRoute path="/orders">
           <Order />
-        </Route>
-        <Route path="/create/service">
+        </PrivateRoute>
+        <PrivateRoute path="/checkout">
+          <Checkout />
+        </PrivateRoute>
+        <AdminRoute path="/create/service">
           <CreateService />
-        </Route>
-        <Route path="/admin/order">
+        </AdminRoute>
+        <AdminRoute path="/admin/orders">
           <AdminOrder />
-        </Route>
+        </AdminRoute>
         <Route path="/">
           <Home />
         </Route>

@@ -59,14 +59,29 @@ const SineUp = () => {
             rules={[
               {
                 required: true,
-                message: "Please input your Password!",
+                message: "Please input your password!",
               },
             ]}
           >
             <Input
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
-              placeholder="Password"
+              placeholder="password"
+            />
+          </Form.Item>
+          <Form.Item
+            name="confirm_password"
+            rules={[
+              {
+                required: true,
+                message: "Please input your confirm_password!",
+              },
+            ]}
+          >
+            <Input
+              prefix={<LockOutlined className="site-form-item-icon" />}
+              type="password"
+              placeholder="confirm_password"
             />
           </Form.Item>
 

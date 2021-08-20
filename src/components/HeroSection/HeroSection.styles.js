@@ -19,12 +19,13 @@ export const HeroContainer = styled.section`
 export const HeroInfo = styled.div`
   flex-basis: 65%;
   margin-bottom: 30px;
+  padding-top: 60px;
   @media ${device.tablet} {
     padding-top: 80px;
     margin-bottom: 70px;
   }
   @media ${device.tabletL} {
-    padding-top: 60px;
+    padding-top: 30px;
   }
 `;
 
