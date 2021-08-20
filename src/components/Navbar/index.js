@@ -18,8 +18,8 @@ import {
   NavContainer
 } from "./Navbar.styles";
 const Navbar = () => {
-  const {username,isAdmin} = useSelector(state => state.user?.userInfo)
-
+  const {name,isAdmin} = useSelector(state => state.user?.userInfo)
+  console.log("🚀 ~ file: index.js ~ line 34 ~ Navbar ~ name", name)
   return (
     <>
       <Header>
@@ -31,13 +31,14 @@ const Navbar = () => {
             <NavContainer>
               <ShowAfterTabletL>
                 {
-                  !username && !isAdmin && <PublicNav/>
+ 
+                  !name && !isAdmin && <PublicNav/>
                 }
                 {
-                  username && !isAdmin && <UserNav/>
+                  name && !isAdmin && <UserNav/>
                 }
                 {
-                  username && isAdmin && <AdminNav/>
+                  name && isAdmin && <AdminNav/>
                 }
               </ShowAfterTabletL>
 

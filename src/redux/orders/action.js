@@ -8,7 +8,6 @@ export const GET_USER_ORDERS = 'GET_USER_ORDERS'
 export const getUserOrders = () => async dispatch => {
   try {
     const { data } = await getUserOrdersApi()
-    console.log('🚀 ~ file: Action.js ~ line 11 ~ data', data)
 
     dispatch({ type: GET_USER_ORDERS, payload: data })
   } catch (error) {
@@ -43,21 +42,12 @@ export const getAdminOrders = () => async dispatch => {
 }
 
 export const UPDATE_ORDER = 'UPDATE_ORDER'
-export const updateOrderStatus = (updateInfo, setLoadingStep) => async dispatch => {
-  console.log('🚀 ~ file: action.js ~ line 35 ~ updateInfo', updateInfo)
+export const updateOrderStatus = (updateInfo, setLodging) => async dispatch => {
   try {
     const { data } = await updateOrdersStatusApi(updateInfo)
-    console.log('🚀 ~ file: actions.js ~ line 10 ~ data', data)
     dispatch(showNotification({ message: 'Order Update Successfully', massageType: 'success' }))
-    dispatch({ type: UPDATE_ORDER, payload: data?.updated })
-
-    data.saveUserDiscount &&
-      dispatch(
-        showNotification({
-          message: `${data?.saveUserDiscount?.userId} get ৳ ${data?.saveUserDiscount?.amount} Taka Discount on Next order`,
-          massageType: 'success',
-        }),
-      )
+    dispatch({ type: UPDATE_ORDER, payload: data })
+    setLodging(false)
   } catch (error) {
     console.log(error)
     dispatch(
@@ -66,9 +56,9 @@ export const updateOrderStatus = (updateInfo, setLoadingStep) => async dispatch 
         massageType: 'error',
       }),
     )
-  } finally {
-    setLoadingStep(-1)
-  }
+  } 
+  setLodging(false)
+
 }
 export const CREATE_ORDER = 'CREATE_ORDER'
 export const createOrder = (orderInfo, history) => async dispatch => {

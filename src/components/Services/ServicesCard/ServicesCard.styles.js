@@ -38,9 +38,7 @@ export const ServicesCardBody = styled.div`
     margin-bottom: 20px;
   }
 
-  & span {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
+  & span{
+    padding: -100px;
   }
 `;

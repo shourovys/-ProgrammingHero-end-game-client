@@ -27,17 +27,17 @@ const SineUp = () => {
           onFinish={onFinish}
         >
           <Form.Item
-            name="username"
+            name="name"
             rules={[
               {
                 required: true,
-                message: "Please input your Username!",
+                message: "Please input your name!",
               },
             ]}
           >
             <Input
               prefix={<UserOutlined className="site-form-item-icon" />}
-              placeholder="Username"
+              placeholder="name"
             />
           </Form.Item>
           <Form.Item

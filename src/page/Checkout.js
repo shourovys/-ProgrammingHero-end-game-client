@@ -4,10 +4,10 @@ import { useHistory, useParams } from "react-router-dom";
 import CssBar from "../components/Common/CssBar";
 import { createOrder } from "../redux/orders/action";
 import {
-  Container,
-  MainButton,
-  PaddingContainer,
-  Title
+    Container,
+    MainButton,
+    PaddingContainer,
+    Title
 } from "../style/common";
 import { CheckoutContainer } from "./Styles";
 
@@ -40,7 +40,7 @@ const Checkout = () => {
             dispatch(
               createOrder({
                 orderService: service,
-                username: user.userInfo.username,
+                name: user.userInfo.name,
               },history)
             )
           }

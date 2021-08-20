@@ -13,8 +13,8 @@ export default function ordersReducer(state = orders, action) {
   switch (action.type) {
     case GET_USER_ORDERS:
       return {
-        userOrders: action.payload,
         ...state,
+        userOrders: action.payload,
       };
 
     case GET_ADMIN_ORDERS:
