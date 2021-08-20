@@ -1,23 +1,16 @@
-import { getOrdersApi, updateOrdersStateApi, updateOrdersStatusApi } from 'configs'
-import { showNotification } from 'redux/Notification/Action'
+import { createOrderApi, getAdminOrdersApi, getUserOrdersApi, updateOrdersStatusApi } from '../../api'
+import { showNotification } from '../Notification/Action'
 
-export const GET_ORDERS = 'GET_ORDERS'
 
-export const getOrders = (page, setLoading) => async dispatch => {
-  dispatch({
-    type: GET_ORDERS,
-    payload: {
-      data: null,
-      currentPage: 1,
-      numberOfPages: 5,
-    },
-  })
 
+export const GET_USER_ORDERS = 'GET_USER_ORDERS'
+
+export const getUserOrders = () => async dispatch => {
   try {
-    const { data } = await getOrdersApi(page)
+    const { data } = await getUserOrdersApi()
     console.log('🚀 ~ file: Action.js ~ line 11 ~ data', data)
 
-    dispatch({ type: GET_ORDERS, payload: data })
+    dispatch({ type: GET_USER_ORDERS, payload: data })
   } catch (error) {
     console.log(error)
     dispatch(
@@ -27,7 +20,26 @@ export const getOrders = (page, setLoading) => async dispatch => {
       }),
     )
   }
-  // setLoading(false)
+}
+
+
+export const GET_ADMIN_ORDERS = 'GET_ADMIN_ORDERS'
+
+export const getAdminOrders = () => async dispatch => {
+  try {
+    const { data } = await getAdminOrdersApi()
+    console.log('🚀 ~ file: Action.js ~ line 11 ~ data', data)
+
+    dispatch({ type: GET_ADMIN_ORDERS, payload: data })
+  } catch (error) {
+    console.log(error)
+    dispatch(
+      showNotification({
+        message: error.Error || 'Some error happened, Please try again',
+        massageType: 'error',
+      }),
+    )
+  }
 }
 
 export const UPDATE_ORDER = 'UPDATE_ORDER'
@@ -58,14 +70,18 @@ export const updateOrderStatus = (updateInfo, setLoadingStep) => async dispatch 
     setLoadingStep(-1)
   }
 }
-export const UPDATE_ORDER_STATE = 'UPDATE_ORDER_STATE'
-export const updateOrderState = orderId => async dispatch => {
-  console.log('this action call ')
+export const CREATE_ORDER = 'CREATE_ORDER'
+export const createOrder = (orderInfo, history) => async dispatch => {
   try {
-    const { data } = await updateOrdersStateApi(orderId)
-    console.log('🚀 ~ file: actions.js ~ line 10 ~ data', data)
-    dispatch({ type: UPDATE_ORDER_STATE, payload: data?.updated })
+    const { data } = await createOrderApi(orderInfo)
+    dispatch({ type: CREATE_ORDER, payload: data })
+    dispatch(showNotification({ massageType: "success", message: `Your order successfully created` }));
+    history.push('/orders')
   } catch (error) {
     console.log(error)
+    showNotification({
+      message: error?.response?.data?.message,
+      massageType: "error",
+    })
   }
 }

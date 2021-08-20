@@ -7,7 +7,9 @@ import { ServiceDetailsContainer } from "./Styles";
 const ServiceDetails = () => {
   const { id } = useParams();
   const services = useSelector((state) => state.services);
+
   const service = services.find((service) => service._id === id);
+
   return (
     <Container>
       <PaddingContainer>

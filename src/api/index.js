@@ -19,12 +19,8 @@ export const addServiceApi = formData => API.post(`/services/add`, formData)
 export const updateServiceApi = formData => API.post(`/services/update`, formData)
 export const getServiceApi = () => API.get(`/services/get`)
 
-
-
-//food Menu
-export const updateMenuApi = formData => API.post(`/menu/add`, formData)
-export const getMenuApi = () => API.get(`/menu/get`)
 //Orders
-export const getOrdersApi = page => API.get(`/order/get?page=${page}`)
+export const getUserOrdersApi = page => API.get(`/order/user/get`)
+export const getAdminOrdersApi = page => API.get(`/order/admin/get`)
 export const updateOrdersStatusApi = updateInfo => API.post(`/order/update`, updateInfo)
-export const updateOrdersStateApi = orderId => API.get(`/order/update/state?orderId=${orderId}`)
+export const createOrderApi = orderInfo => API.post(`/order/create`,orderInfo)

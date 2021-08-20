@@ -48,15 +48,21 @@ export const CheckoutContainer = styled.section`
   text-align: center;
 
   & div {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    align-items: center;
     background-color: #1f2471;
     max-width: 500px;
+    border-radius: 10px;
     margin: 0 auto;
     color: white;
     padding: 20px 20px 20px 10px;
     margin-bottom: 20px;
+
+    & span {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 20px;
+      align-items: center;
+      font-weight: 500;
+      font-size: 18px;
+    }
   }
 `;
