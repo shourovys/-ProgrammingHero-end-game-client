@@ -9,8 +9,8 @@ export const FromContainer = styled.section`
     max-width: 720px;
   }
 
-  & h1{
-      font-size: 24px;
+  & h1 {
+    font-size: 24px;
   }
 `;
 
@@ -22,23 +22,41 @@ export const ServiceDetailsContainer = styled.section`
   align-items: center;
   flex-wrap: wrap;
   @media ${device.tablet} {
-  justify-content: space-between;
+    justify-content: space-between;
     flex-wrap: nowrap;
   }
 
-  & div{
+  & div {
     flex-basis: 50%;
 
-    & h1{
+    & h1 {
       font-size: 24px;
     }
-    & h2{
+    & h2 {
       font-size: 18px;
       margin-bottom: 20px;
     }
-    & img{
+    & img {
       width: 100%;
       height: 100%;
     }
+  }
+`;
+
+//Checkout page
+export const CheckoutContainer = styled.section`
+  text-align: center;
+
+  & div {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    background-color: #1f2471;
+    max-width: 500px;
+    margin: 0 auto;
+    color: white;
+    padding: 20px 20px 20px 10px;
+    margin-bottom: 20px;
   }
 `;

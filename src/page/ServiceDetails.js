@@ -16,7 +16,7 @@ const ServiceDetails = () => {
             <h1>Title: {service && service.title}</h1>
             <p>Description:{service && service.description}</p>
             <h2>Price: {service && service.price}</h2>
-            <Link to={`/checkout`}>
+            <Link to={`/checkout/${id}`}>
               <MainButton>Buy Now</MainButton>
             </Link>
           </div>

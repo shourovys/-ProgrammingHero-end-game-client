@@ -19,7 +19,7 @@ const ServicesCards = () => {
             <Link to={`/service/${service._id}`}>
               <MainButton>view More</MainButton>
             </Link>
-            <Link to={`/checkout`}>
+            <Link to={`/checkout/${service._id}`}>
               <MainButton>Buy Now</MainButton>
             </Link>
           </span>
