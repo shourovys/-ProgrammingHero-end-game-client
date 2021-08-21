@@ -40,5 +40,7 @@ export const ServicesCardBody = styled.div`
 
   & span{
     padding: -100px;
+    display: flex;
+    gap: 10px;
   }
 `;

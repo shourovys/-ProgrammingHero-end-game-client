@@ -24,9 +24,6 @@ export default function userReducer(state = initialState, action) {
       };
     default:
       const profile = JSON.parse(localStorage.getItem("profile")||'{}');
-      return {
-        ...state,
-        ...profile,
-      };
+      return profile;
   }
 }

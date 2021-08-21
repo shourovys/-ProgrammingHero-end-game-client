@@ -1,11 +1,13 @@
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import { default as React } from "react";
+import { useSelector } from "react-redux";
 import logo from "../../../../images/logo-blue.png";
 import { Logo } from "../../../../style/common";
+import AdminNav from "../../Nav/AdminNav";
+import PublicNav from "../../Nav/PublicNav";
+import UserNav from "../../Nav/UserNav";
 import {
-  BoxIconWrapper,
-  HamburgerItem,
   HamburgerItemContainer,
   HamburgerMenuContainer,
   SocialIconContainer,
@@ -23,7 +25,8 @@ const useStyles = makeStyles({
 
 const LeftDrawer = ({ toggleDrawer }) => {
   const classes = useStyles();
-
+  const email = useSelector((state) => state.user?.userInfo?.email);
+  const isAdmin = useSelector((state) => state.user?.userInfo?.isAdmin);
   return (
     <div
       className={clsx(classes.list)}
@@ -35,42 +38,9 @@ const LeftDrawer = ({ toggleDrawer }) => {
         <Logo color="blue" src={logo} alt="logo" />
 
         <HamburgerItemContainer>
-          <HamburgerItem href="#">
-            Home
-            <BoxIconWrapper>
-              <i className="fa fa-chevron-right" />
-            </BoxIconWrapper>
-          </HamburgerItem>
-          <HamburgerItem href="#why-us">
-             Why Us
-            <BoxIconWrapper>
-              <i className="fa fa-chevron-right" />
-            </BoxIconWrapper>
-          </HamburgerItem>
-          <HamburgerItem href="#services">
-            Services
-            <BoxIconWrapper>
-              <i className="fa fa-chevron-right" />
-            </BoxIconWrapper>
-          </HamburgerItem>
-          <HamburgerItem href="#portfolio">
-            Portfolio
-            <BoxIconWrapper>
-              <i className="fa fa-chevron-right" />
-            </BoxIconWrapper>
-          </HamburgerItem>
-          <HamburgerItem href="#specializations">
-            Specializations
-            <BoxIconWrapper>
-              <i className="fa fa-chevron-right" />
-            </BoxIconWrapper>
-          </HamburgerItem>
-          <HamburgerItem href="#specializations">
-            Admin
-            <BoxIconWrapper>
-              <i className="fa fa-chevron-right" />
-            </BoxIconWrapper>
-          </HamburgerItem>
+          {!email && !isAdmin && <PublicNav />}
+          {email && !isAdmin && <UserNav />}
+          {email && isAdmin && <AdminNav />}
         </HamburgerItemContainer>
 
         <SocialIconContainer>

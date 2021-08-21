@@ -15,31 +15,28 @@ import UserNav from "./Nav/UserNav";
 import {
   Header,
   MenuContainer,
-  NavContainer
+  NavContainer,
+  NavItemContainer
 } from "./Navbar.styles";
 const Navbar = () => {
-  const {name,isAdmin} = useSelector(state => state.user?.userInfo)
-  console.log("🚀 ~ file: index.js ~ line 34 ~ Navbar ~ name", name)
+  const email = useSelector((state) => state.user?.userInfo?.email);
+  const isAdmin = useSelector((state) => state.user?.userInfo?.isAdmin);
+
   return (
     <>
       <Header>
         <Container>
           <MenuContainer>
-            <Link to='/'>
+            <Link to="/">
               <Logo src={logo} color="blue" />
             </Link>
             <NavContainer>
               <ShowAfterTabletL>
-                {
- 
-                  !name && !isAdmin && <PublicNav/>
-                }
-                {
-                  name && !isAdmin && <UserNav/>
-                }
-                {
-                  name && isAdmin && <AdminNav/>
-                }
+                <NavItemContainer>
+                  {!email && !isAdmin && <PublicNav />}
+                  {email && !isAdmin && <UserNav />}
+                  {email && isAdmin && <AdminNav />}
+                </NavItemContainer>
               </ShowAfterTabletL>
 
               <ShowAfterMobile>

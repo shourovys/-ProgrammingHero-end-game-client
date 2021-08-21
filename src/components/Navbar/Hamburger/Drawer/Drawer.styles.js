@@ -8,6 +8,11 @@ export const HamburgerMenuContainer = styled.div`
 
 export const HamburgerItemContainer = styled.div`
   padding: 25px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  font-size: 20px;
 `;
 export const HamburgerItem = styled.a`
   text-align: center;
